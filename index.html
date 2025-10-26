@@ -2,52 +2,56 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Портфолио</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-<div class="app-container">
-  <header>
-    <div class="logo">💻</div>
-    <h1>Константинов Антон</h1>
-    <nav>
-      <a href="index.html">Главная</a>
-      <a href="pages/projects.html">Проекты</a>
-      <a href="pages/diary.html">Дневник</a>
-      <a href="pages/contacts.html">Контакты</a>
-    </nav>
-  </header>
+<a class="skip-link" href="#main">Перейти к основному содержимому</a>
 
-  <main>
-    <section class="intro">
-      <img src="img/avatar.jpg" alt="Фото студента" />
+<header class="header">
+  <div class="logo">💻</div>
+  <h1>Константинов Антон Алексеевич</h1>
+  <nav class="nav" aria-label="Основная навигация">
+    <a href="index.html">Главная</a>
+    <a href="pages/projects.html">Проекты</a>
+    <a href="pages/diary.html">Дневник</a>
+    <a href="pages/contacts.html">Контакты</a>
+  </nav>
+</header>
+
+<main id="main" class="main">
+  <section class="intro">
+    <img src="img/avatar.jpg" alt="Фото студента" class="intro__avatar" />
+    <div class="intro__content">
       <p>Привет! Я студент группы ЭФБО-07-24</p>
       <p>Увлекаюсь веб-разработкой</p>
-      <a href="assets/resume.pdf" download>Скачать резюме</a>
-    </section>
+      <a href="assets/resume.pdf" download class="btn">Скачать резюме</a>
+    </div>
+  </section>
 
-    <section class="skills">
-      <h2>Мои навыки</h2>
-      <div class="skill"><span>HTML/CSS</span> <div class="bar"><div style="width:90%"></div></div> 90%</div>
-      <div class="skill"><span>JavaScript</span> <div class="bar"><div style="width:80%"></div></div> 80%</div>
-      <div class="skill"><span>Bootstrap</span> <div class="bar"><div style="width:85%"></div></div> 85%</div>
-      <div class="skill"><span>React</span> <div class="bar"><div style="width:60%"></div></div> 60%</div>
-    </section>
+  <section class="skills">
+    <h2>Мои навыки</h2>
+    <div class="skills-grid">
+      <div class="skill"><span>HTML/CSS</span><div class="bar"><div style="width:90%"></div></div>90%</div>
+      <div class="skill"><span>JavaScript</span><div class="bar"><div style="width:80%"></div></div>80%</div>
+      <div class="skill"><span>Bootstrap</span><div class="bar"><div style="width:85%"></div></div>85%</div>
+      <div class="skill"><span>React</span><div class="bar"><div style="width:60%"></div></div>60%</div>
+    </div>
+  </section>
 
-    <section class="projects-preview">
-      <h2>Лучшие проекты</h2>
-      <div class="project-cards">
-        <div class="card">П1</div>
-        <div class="card">П2</div>
-        <div class="card">П3</div>
-      </div>
-    </section>
-  </main>
+  <section class="projects-preview">
+    <h2>Лучшие проекты</h2>
+    <div class="projects-preview__grid">
+      <div class="project-card">П1</div>
+      <div class="project-card">П2</div>
+      <div class="project-card">П3</div>
+    </div>
+  </section>
+</main>
 
-  <footer>
-    <p>© 2025 Контакты</p>
-  </footer>
-</div>
+<footer class="footer">
+  <p>© 2025 Контакты</p>
+</footer>
 </body>
 </html>

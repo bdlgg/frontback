@@ -1,47 +1,48 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="../css/style.css">
-  <title>Портфолио</title>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Контакты</title>
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
-<div class="app-container">
-  <header>
+<a class="skip-link" href="#main">Перейти к основному содержимому</a>
 
-    <div class="logo">💻</div>
-    <h1>Антон Константинов</h1>
-    <nav>
-      <a href="../index.html">Главная</a>
-      <a href="projects.html">Проекты</a>
-      <a href="diary.html">Дневник</a>
-      <a href="contacts.html">Контакты</a>
-    </nav>
-  </header>
+<header class="header">
+  <div class="logo">💻</div>
+  <h1>Константинов Антон Алексеевич</h1>
+  <nav class="nav" aria-label="Основная навигация">
+    <a href="../index.html">Главная</a>
+    <a href="projects.html">Проекты</a>
+    <a href="diary.html">Дневник</a>
+    <a href="contacts.html">Контакты</a>
+  </nav>
+</header>
 
-  <main>
-    <h2>Свяжитесь со мной</h2>
-    <form class="contact-form">
-      <label>Имя: <input type="text" required /></label>
-      <label>Email: <input type="email" required /></label>
-      <label>Сообщение:<br>
-        <textarea rows="5" required></textarea>
-      </label>
-      <button type="submit">Отправить сообщение</button>
-    </form>
-    <div class="contact-info">
-      <p>📧 student@edu.ru</p>
-      <p>📱 GitHub: bdlgg</p>
-      <p>📍 Москва, Россия</p>
-    </div>
-  </main>
+<main id="main" class="main">
+  <h2>Свяжитесь со мной</h2>
+  <form class="contact-form">
+    <label for="name">Имя <span class="required">*</span>
+      <input type="text" id="name" name="name" required />
+    </label>
+    <label for="email">Email <span class="required">*</span>
+      <input type="email" id="email" name="email" required />
+    </label>
+    <label for="message">Сообщение <span class="required">*</span>
+      <textarea id="message" name="message" rows="5" required></textarea>
+    </label>
+    <button type="submit" class="btn">Отправить сообщение</button>
+  </form>
+  <div class="contact-info">
+    <p>📧 example@example.com</p>
+    <p>📱 GitHub: bdlgg</p>
+    <p>📍 Москва, Россия</p>
+  </div>
+</main>
 
-  <footer>
-    <p>© 2025 Контакты</p>
-  </footer>
-</div>
+<footer class="footer">
+  <p>© 2025 Контакты</p>
+</footer>
 </body>
 </html>

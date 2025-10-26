@@ -2,43 +2,45 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Дневник</title>
   <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
-<div class="app-container">
-  <header>
-    <div class="logo">💻</div>
-    <h1>Константинов Антон</h1>
-    <nav>
-      <a href="../index.html">Главная</a>
-      <a href="projects.html">Проекты</a>
-      <a href="diary.html">Дневник</a>
-      <a href="contacts.html">Контакты</a>
-    </nav>
-  </header>
+<a class="skip-link" href="#main">Перейти к основному содержимому</a>
 
-  <main>
-    <h2>Мой учебный прогресс</h2>
-    <ul class="diary-entries">
-      <li>07 сен — Верстка макета сайта ✓</li>
-      <li>20 сен — JavaScript основы ✓</li>
-      <li>05 окт — Работа с формами <span class="in-progress">in progress</span></li>
-      <li>15 окт — Адаптивный дизайн <span class="in-progress">in progress</span></li>
-    </ul>
+<header class="header">
+  <div class="logo">💻</div>
+  <h1>Константинов Антон Алексеевич</h1>
+  <nav class="nav" aria-label="Основная навигация">
+    <a href="../index.html">Главная</a>
+    <a href="projects.html">Проекты</a>
+    <a href="diary.html">Дневник</a>
+    <a href="contacts.html">Контакты</a>
+  </nav>
+</header>
 
-    <h3>Текущие курсы</h3>
-    <div class="course"><span>Веб-разработка</span> <div class="bar"><div style="width:90%"></div></div> 90%</div>
-    <div class="course"><span>JavaScript</span> <div class="bar"><div style="width:70%"></div></div> 70%</div>
-    <div class="course"><span>React</span> <div class="bar"><div style="width:50%"></div></div> 50%</div>
+<main id="main" class="main">
+  <h2>Мой учебный прогресс</h2>
+  <ul class="diary-entries">
+    <li>07 сен — Верстка макета сайта ✓</li>
+    <li>20 сен — JavaScript основы ✓</li>
+    <li>05 окт — Работа с формами <span class="in-progress">in progress</span></li>
+    <li>15 окт — Адаптивный дизайн <span class="in-progress">in progress</span></li>
+  </ul>
 
-    <button>Добавить запись</button>
-  </main>
+  <h3>Текущие курсы</h3>
+  <div class="courses-grid">
+    <div class="course"><span>Веб-разработка</span><div class="bar"><div style="width:90%"></div></div>90%</div>
+    <div class="course"><span>JavaScript</span><div class="bar"><div style="width:70%"></div></div>70%</div>
+    <div class="course"><span>React</span><div class="bar"><div style="width:50%"></div></div>50%</div>
+  </div>
 
-  <footer>
-    <p>© 2025 Контакты</p>
-  </footer>
-</div>
+  <button class="btn">Добавить запись</button>
+</main>
+
+<footer class="footer">
+  <p>© 2025 Контакты</p>
+</footer>
 </body>
 </html>
