@@ -66,7 +66,7 @@ a, button, input, textarea {
   padding-inline-start: calc(clamp(0.5rem, calc(0.25rem + 0.5vw), 1rem) + env(safe-area-inset-left));
   padding-inline-end: calc(clamp(0.5rem, calc(0.25rem + 0.5vw), 1rem) + env(safe-area-inset-right));
   text-align: center;
-  position: sticky;
+  position: static;
   top: 0;
   z-index: 100;
   isolation: isolate;
