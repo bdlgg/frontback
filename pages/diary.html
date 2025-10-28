@@ -21,26 +21,219 @@
 </header>
 
 <main id="main" class="main">
-  <h2>Мой учебный прогресс</h2>
-  <ul class="diary-entries">
-    <li>07 сен — Верстка макета сайта ✓</li>
-    <li>20 сен — JavaScript основы ✓</li>
-    <li>05 окт — Работа с формами <span class="in-progress">in progress</span></li>
-    <li>15 окт — Адаптивный дизайн <span class="in-progress">in progress</span></li>
-  </ul>
+  <div class="main-content">
+    <h2>Мой учебный прогресс</h2>
 
-  <h3>Текущие курсы</h3>
-  <div class="courses-grid">
-    <div class="course"><span>Веб-разработка</span><div class="bar"><div style="width:90%"></div></div>90%</div>
-    <div class="course"><span>JavaScript</span><div class="bar"><div style="width:70%"></div></div>70%</div>
-    <div class="course"><span>React</span><div class="bar"><div style="width:50%"></div></div>50%</div>
+    <div class="add-entry-form" id="addEntryForm" style="display: none;">
+      <h3>Добавить новую запись</h3>
+      <form id="newEntryForm">
+        <div class="form-group">
+          <label for="entryDate">Дата:</label>
+          <input type="date" id="entryDate" name="entryDate" required />
+        </div>
+        <div class="form-group">
+          <label for="entryTitle">Заголовок:</label>
+          <input type="text" id="entryTitle" name="entryTitle" placeholder="Например: Изучение React" required />
+        </div>
+        <div class="form-group">
+          <label for="entryDescription">Описание:</label>
+          <textarea id="entryDescription" name="entryDescription" rows="4" placeholder="Опишите что вы изучили или сделали..." required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="entryStatus">Статус:</label>
+          <select id="entryStatus" name="entryStatus">
+            <option value="completed">Завершено ✓</option>
+            <option value="in-progress">В процессе</option>
+            <option value="planned">Запланировано</option>
+          </select>
+        </div>
+        <div class="form-buttons">
+          <button type="submit" class="btn">Добавить запись</button>
+          <button type="button" class="btn btn-secondary" onclick="hideAddForm()">Отмена</button>
+        </div>
+      </form>
+    </div>
+
+    <ul class="diary-entries" id="diaryEntries">
+      <li>
+        <span class="entry-date">07 сен</span>
+        <span class="entry-title">Верстка макета сайта</span>
+        <span class="entry-status completed">✓</span>
+      </li>
+      <li>
+        <span class="entry-date">20 сен</span>
+        <span class="entry-title">JavaScript основы</span>
+        <span class="entry-status completed">✓</span>
+      </li>
+      <li>
+        <span class="entry-date">05 окт</span>
+        <span class="entry-title">Работа с формами</span>
+        <span class="entry-status in-progress">in progress</span>
+      </li>
+      <li>
+        <span class="entry-date">15 окт</span>
+        <span class="entry-title">Адаптивный дизайн</span>
+        <span class="entry-status in-progress">in progress</span>
+      </li>
+      <li>
+        <span class="entry-date">25 окт</span>
+        <span class="entry-title">React основы</span>
+        <span class="entry-status in-progress">in progress</span>
+      </li>
+    </ul>
+
+    <h3>Текущие курсы</h3>
+    <div class="courses-grid">
+      <div class="course"><span>Веб-разработка</span><div class="bar"><div style="width:90%"></div></div>90%</div>
+      <div class="course"><span>JavaScript</span><div class="bar"><div style="width:70%"></div></div>70%</div>
+      <div class="course"><span>C#</span><div class="bar"><div style="width:50%"></div></div>50%</div>
+      <div class="course"><span>Node.js</span><div class="bar"><div style="width:30%"></div></div>30%</div>
+    </div>
+
+    <div class="add-btn-container">
+      <button class="btn" onclick="showAddForm()">Добавить запись</button>
+    </div>
   </div>
-
-  <button class="btn">Добавить запись</button>
 </main>
 
 <footer class="footer">
   <p>© 2025 Контакты</p>
 </footer>
+
+<script>
+  // Функции для показа/скрытия формы
+  function showAddForm() {
+    document.getElementById('addEntryForm').style.display = 'block';
+    document.getElementById('entryDate').valueAsDate = new Date();
+  }
+
+  function hideAddForm() {
+    document.getElementById('addEntryForm').style.display = 'none';
+    document.getElementById('newEntryForm').reset();
+  }
+
+  // Обработка отправки формы
+  document.getElementById('newEntryForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const date = document.getElementById('entryDate').value;
+    const title = document.getElementById('entryTitle').value;
+    const description = document.getElementById('entryDescription').value;
+    const status = document.getElementById('entryStatus').value;
+
+    // Форматируем дату
+    const formattedDate = formatDate(date);
+    addNewEntry(formattedDate, title, description, status);
+    hideAddForm();
+    showNotification('Запись успешно добавлена!');
+  });
+
+  // Функция для форматирования даты
+  function formatDate(dateString) {
+    const date = new Date(dateString);
+    const day = date.getDate();
+    const month = getMonthName(date.getMonth());
+    return `${day} ${month}`;
+  }
+
+  // Функция для получения названия месяца
+  function getMonthName(monthIndex) {
+    const months = [
+      'янв', 'фев', 'мар', 'апр', 'май', 'июн',
+      'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'
+    ];
+    return months[monthIndex];
+  }
+
+  // Функция для добавления новой записи
+  function addNewEntry(date, title, description, status) {
+    const entriesList = document.getElementById('diaryEntries');
+
+    const newEntry = document.createElement('li');
+    newEntry.innerHTML = `
+    <span class="entry-date">${date}</span>
+    <span class="entry-title">${title}</span>
+    <span class="entry-description">${description}</span>
+    <span class="entry-status ${getStatusClass(status)}">${getStatusText(status)}</span>
+    <button class="delete-btn" onclick="deleteEntry(this)">×</button>`;
+    entriesList.insertBefore(newEntry, entriesList.firstChild);
+  }
+
+  // Функция для получения класса статуса
+  function getStatusClass(status) {
+    switch(status) {
+      case 'completed': return 'completed';
+      case 'in-progress': return 'in-progress';
+      case 'planned': return 'planned';
+      default: return 'in-progress';
+    }
+  }
+
+  // Функция для получения текста статуса
+  function getStatusText(status) {
+    switch(status) {
+      case 'completed': return '✓';
+      case 'in-progress': return 'in progress';
+      case 'planned': return 'planned';
+      default: return 'in progress';
+    }
+  }
+
+  // Функция для удаления записи
+  function deleteEntry(button) {
+    if (confirm('Вы уверены, что хотите удалить эту запись?')) {
+      const entry = button.parentElement;
+      entry.style.opacity = '0';
+      setTimeout(() => {
+        entry.remove();
+        showNotification('Запись удалена!');
+      }, 300);
+    }
+  }
+
+  // Функция для показа уведомлений
+  function showNotification(message) {
+    const notification = document.createElement('div');
+    notification.className = 'notification';
+    notification.textContent = message;
+    notification.style.cssText = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #28a745;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 1000;
+    animation: slideIn 0.3s ease;
+  `;
+
+    document.body.appendChild(notification);
+
+    // Удаляем уведомление через 3 секунды
+    setTimeout(() => {
+      notification.style.animation = 'slideOut 0.3s ease';
+      setTimeout(() => {
+        document.body.removeChild(notification);
+      }, 300);
+    }, 3000);
+  }
+
+  // Добавляем стили для анимаций
+  const style = document.createElement('style');
+  style.textContent = `
+  @keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+
+  @keyframes slideOut {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+  }
+`;
+  document.head.appendChild(style);
+</script>
 </body>
 </html>

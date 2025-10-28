@@ -21,37 +21,152 @@
 </header>
 
 <main id="main" class="main">
-  <section class="intro">
-    <img src="img/avatar.jpg" alt="Фото студента" class="intro__avatar" />
-    <div class="intro__content">
-      <p>Привет! Я студент группы ЭФБО-07-24</p>
-      <p>Увлекаюсь веб-разработкой</p>
-      <a href="assets/resume.pdf" download class="btn">Скачать резюме</a>
-    </div>
-  </section>
+  <div class="main-content">
+    <section class="intro">
+      <img src="img/avatar.jpg" alt="Фото студента" class="intro__avatar" />
+      <div class="intro__content">
+        <p>Привет! Я студент группы ЭФБО-07-24</p>
+        <p>Увлекаюсь веб-разработкой</p>
+        <a href="assets/resume.pdf" download class="btn">Скачать резюме</a>
+      </div>
+    </section>
 
-  <section class="skills">
-    <h2>Мои навыки</h2>
-    <div class="skills-grid">
-      <div class="skill"><span>HTML/CSS</span><div class="bar"><div style="width:90%"></div></div>90%</div>
-      <div class="skill"><span>JavaScript</span><div class="bar"><div style="width:80%"></div></div>80%</div>
-      <div class="skill"><span>Bootstrap</span><div class="bar"><div style="width:85%"></div></div>85%</div>
-      <div class="skill"><span>React</span><div class="bar"><div style="width:60%"></div></div>60%</div>
-    </div>
-  </section>
+    <section class="skills">
+      <h2>Мои навыки</h2>
+      <div class="skills-grid">
+        <div class="skill"><span>HTML/CSS</span><div class="bar"><div style="width:90%"></div></div>90%</div>
+        <div class="skill"><span>JavaScript</span><div class="bar"><div style="width:80%"></div></div>80%</div>
+        <div class="skill"><span>Bootstrap</span><div class="bar"><div style="width:85%"></div></div>85%</div>
+        <div class="skill"><span>C#</span><div class="bar"><div style="width:60%"></div></div>60%</div>
+      </div>
+    </section>
 
-  <section class="projects-preview">
-    <h2>Лучшие проекты</h2>
-    <div class="projects-preview__grid">
-      <div class="project-card">П1</div>
-      <div class="project-card">П2</div>
-      <div class="project-card">П3</div>
-    </div>
-  </section>
+    <section class="projects-preview">
+      <h2>Лучшие проекты</h2>
+      <div class="projects-preview__grid">
+
+        <div class="project-card" onclick="openModal('modal1')">
+          <img src="img/project1.jpg" alt="Сайт портфолио" />
+          <h3>Сайт портфолио</h3>
+          <p>Адаптивный сайт-портфолио с современным дизайном</p>
+          <p><strong>Технологии:</strong> HTML, CSS, JavaScript</p>
+          <div class="project-tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+          </div>
+        </div>
+
+        <div class="project-card" onclick="openModal('modal2')">
+          <img src="img/project2.jpg" alt="Калькулятор на C#" />
+          <h3>Калькулятор на C#</h3>
+          <p>Десктопное приложение калькулятора</p>
+          <p><strong>Технологии:</strong> C#, .NET, Windows Forms</p>
+          <div class="project-tags">
+            <span class="tag">C#</span>
+            <span class="tag">.NET</span>
+            <span class="tag">Windows Forms</span>
+          </div>
+        </div>
+
+        <div class="project-card" onclick="openModal('modal3')">
+          <img src="img/project3.jpg" alt="Семестровая работа" />
+          <h3>Семестровая работа</h3>
+          <p>Учебный проект по веб-разработке</p>
+          <p><strong>Технологии:</strong> HTML, CSS, JavaScript</p>
+          <div class="project-tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </main>
+
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('modal1')">×</button>
+    <img src="img/project1.jpg" alt="Сайт портфолио" class="modal-image" />
+    <h3>Сайт портфолио</h3>
+    <p><strong>Описание:</strong> Адаптивный сайт-портфолио с современным дизайном, созданный для демонстрации проектов и навыков. Сайт полностью responsive и корректно отображается на всех устройствах.</p>
+    <p><strong>Основные функции:</strong></p>
+    <ul>
+      <li>Адаптивный дизайн</li>
+      <li>Современный интерфейс</li>
+      <li>Оптимизированная производительность</li>
+      <li>Кроссбраузерная совместимость</li>
+    </ul>
+    <p><strong>Технологии:</strong> HTML5, CSS3, JavaScript, Flexbox, Grid</p>
+    <div class="modal-links">
+      <a href="https://bdlgg.github.io/frontback/" class="btn" target="_blank">Живая версия</a>
+      <a href="https://github.com/bdlgg/frontback" class="btn" target="_blank">Исходный код</a>
+    </div>
+  </div>
+</div>
+
+<div id="modal2" class="modal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('modal2')">×</button>
+    <img src="img/project2.jpg" alt="Калькулятор на C#" class="modal-image" />
+    <h3>Калькулятор на C#</h3>
+    <p><strong>Описание:</strong> Десктопное приложение калькулятора с графическим интерфейсом, разработанное на C#. Приложение поддерживает основные математические операции и имеет интуитивно понятный интерфейс.</p>
+    <p><strong>Основные функции:</strong></p>
+    <ul>
+      <li>Базовые арифметические операции</li>
+      <li>Графический пользовательский интерфейс</li>
+      <li>Обработка ошибок ввода</li>
+      <li>Кнопка сброса</li>
+    </ul>
+    <p><strong>Технологии:</strong> C#, .NET Framework, Windows Forms</p>
+    <div class="modal-links">
+      <a href="https://github.com/bdlgg/calc-" class="btn" target="_blank">Исходный код</a>
+    </div>
+  </div>
+</div>
+
+<div id="modal3" class="modal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('modal3')">×</button>
+    <img src="img/project3.jpg" alt="Семестровая работа" class="modal-image" />
+    <h3>Семестровая работа</h3>
+    <p><strong>Описание:</strong> Учебный проект по веб-разработке, созданный в рамках семестровой работы. Проект демонстрирует навыки фронтенд и бэкенд разработки с использованием современных веб-технологий.</p>
+    <p><strong>Основные функции:</strong></p>
+    <ul>
+      <li>Интерактивный пользовательский интерфейс</li>
+      <li>Адаптивная верстка</li>
+      <li>Взаимодействие с пользователем</li>
+      <li>Чистый и поддерживаемый код</li>
+    </ul>
+    <p><strong>Технологии:</strong> HTML5, CSS3, JavaScript, Responsive Design</p>
+    <div class="modal-links">
+      <a href="https://bdlgg.github.io/backend-and-frontend-practice/" class="btn" target="_blank">Живая версия</a>
+      <a href="https://github.com/bdlgg/backend-and-frontend-practice" class="btn" target="_blank">Исходный код</a>
+    </div>
+  </div>
+</div>
 
 <footer class="footer">
   <p>© 2025 Контакты</p>
 </footer>
+
+<script>
+  // Функции для модальных окон
+  function openModal(modalId) {
+    document.getElementById(modalId).style.display = 'flex';
+  }
+
+  function closeModal(modalId) {
+    document.getElementById(modalId).style.display = 'none';
+  }
+
+  // Закрытие модального окна при клике вне его
+  window.onclick = function(event) {
+    if (event.target.classList.contains('modal')) {
+      event.target.style.display = 'none';
+    }
+  }
+</script>
 </body>
 </html>
